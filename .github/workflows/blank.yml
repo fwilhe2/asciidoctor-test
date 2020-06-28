@@ -8,14 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: asciidoctor/docker-asciidoctor
+    container: fwilhe/asciidoctor 
     steps:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
         asciidoctor sample.adoc
         asciidoctor-pdf sample.adoc
-        asciidoctor-epub3 sample.adoc
     - uses: actions/upload-artifact@master
       with:
         name: doc
